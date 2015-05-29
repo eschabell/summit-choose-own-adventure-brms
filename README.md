@@ -17,7 +17,7 @@ In this lab, you will:
 
 Install on your machine
 -----------------------
-![Cover Slide](https://raw.githubusercontent.com/eschabell/summit-choose-own-adventure-brms/master/bpms-labs/cover.png)
+![Cover Slide](https://raw.githubusercontent.com/eschabell/summit-choose-own-adventure-brms/master/brms-labs/cover.png)
 
 1. [Download and unzip.](https://github.com/eschabell/summit-choose-own-adventure-brms/archive/master.zip)
 
