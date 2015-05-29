@@ -100,6 +100,10 @@ echo "  - setup email notification users..."
 echo
 cp $SUPPORT_DIR/userinfo.properties $SERVER_DIR/business-central.war/WEB-INF/classes/
 
+echo "  - install JBoss BRMS Cool Stor online retail web shopping cart application..."
+echo
+cp $SUPPORT_DIR/brms-coolstore-demo.war $SERVER_DIR
+
 # Add execute permissions to the standalone.sh script.
 echo "  - making sure standalone.sh for server is executable..."
 echo

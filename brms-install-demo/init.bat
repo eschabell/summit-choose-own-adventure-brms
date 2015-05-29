@@ -108,6 +108,10 @@ echo - setup email task notification users...
 echo.
 xcopy "%SUPPORT_DIR%\userinfo.properties" "%SERVER_DIR%\business-central.war\WEB-INF\classes\"
 
+echo - install JBoss BRMS Cool Stor online retail web shopping cart application...
+echo.
+xcopy "%SUPPORT_DIR%\brms-coolstore-demo.war" "%SERVER_DIR%"
+
 echo.
 echo You can now start the %PRODUCT% with %SERVER_BIN%\standalone.bat
 echo.
