@@ -97,7 +97,7 @@
         <section>
             <h2>Create new domain model</h2>
             <ul>
-                <li>Add all fields as shown, hitting <code>CREATE</code> to add each one</li>
+                <li>Add all fields, hitting <code>CREATE</code> for each one:</li>
                 <ul>
                     <li>desc, Description, <code>String</code></li>
                     <li>itemId, Item ID, <code>String</code></li>
@@ -114,7 +114,8 @@
         <section>
             <h2>Create new domain model</h2>
             <ul>
-                <li>Finished <code>Product</code> object in our domain model for now...</li>
+                <li>Finished <code>Product</code> object in our domain model for now</li>
+                <li>be sure to <code>SAVE</code> data object before moving on...</li>
             </ul>
             <img src="images/brms_workshop/image3-05.png" />
         </section>
@@ -140,6 +141,7 @@
             <h2>Create new domain model</h2>
             <ul>
                 <li>Add all fields to <code>PromoEvent</code></li>
+                <li>be sure to <code>SAVE</code> data object before moving on...</li>
             </ul>
             <img src="images/brms_workshop/image3-09.png" />
         </section>
@@ -149,7 +151,7 @@
             <ul>
                 <li>Create <code>ShoppingCart</code> object</li>
                 <div style="float: right">
-                    <img src="images/brms_workshop/image26.png" />
+                    <img src="images/brms_workshop/image3-10.png" />
                 </div>
             </ul>
         </section>
@@ -158,8 +160,9 @@
             <h2>Create new domain model</h2>
             <ul>
                 <li>Add all fields for <code>ShoppingCart</code> object</li>
+                <li>be sure to <code>SAVE</code> data object before moving on...</li>
                 <div style="float: right">
-                    <img src="images/brms_workshop/image27.png" />
+                    <img src="images/brms_workshop/image3-11.png" />
                 </div>
             </ul>
         </section>
@@ -169,7 +172,7 @@
             <ul>
                 <li>Create <code>ShoppingCartItem</code> object</li>
                 <div style="float: right">
-                    <img src="images/brms_workshop/image28.png" />
+                    <img src="images/brms_workshop/image3-12.png" />
                 </div>
             </ul>
         </section>
@@ -178,36 +181,69 @@
             <h2>Create new domain model</h2>
             <ul>
                 <li>Add all fields for <code>ShoppingCartItem</code> object</li>
-                <li>note: <code>shoppingCart</code> is object found in <code>Type</code> drop down menu</li>
-                <div style="float: right">
-                    <img src="images/brms_workshop/image29.png" />
-                </div>
+                <li>note: <code>shoppingCart</code> is found in <code>Type</code> drop down menu</li>
+                <li>be sure to <code>SAVE</code> data object before moving on...</li>
             </ul>
+            <div style="width: 1056px; height: 400px;">
+                <img src="images/brms_workshop/image3-13.png" />
+                <img src="images/brms_workshop/image3-14.png" />
+            </div>
         </section>
 
         <section>
             <h2>Create new domain model</h2>
             <ul>
-                <li>Now we add a <code>ShoppingCartItemList</code> to <code>ShoppingCart</code> object</li>
-                <li>note: <code>ShoppingCartItem [0..N]</code> is found in <code>Type</code> drop down menu</li>
-                <div style="float: right">
-                    <img src="images/brms_workshop/image30.png" />
-                </div>
+                <li>Now we need to re-open <code>ShoppingCart</code> to add a new field</li>
+                <li>First we need to drill down to our object model in the <code>Project Explorer</code></li>
             </ul>
+            <div style="float: right">
+                <img src="images/brms_workshop/image3-15.png" />
+            </div>
         </section>
 
         <section>
-            <h2>Save domain model</h2>
+            <h2>Create new domain model</h2>
             <ul>
-                <li>Click on <code>SAVE</code> button to persist the domain model</li>
-                <li>pop-up bar should say <code>Data model was saved</code></li>
+                <li>Add a <code>ShoppingCartItemList</code> to <code>ShoppingCart</code></li>
+                <li>check <code>List</code> box after selecting <code>Type</code> in drop down menu</li>
+                <li>be sure to <code>SAVE</code> data object before moving on...</li>
             </ul>
-            <img src="images/brms_workshop/image31.png" />
+            <div style="width: 1056px; height: 400px;">
+                <img src="images/brms_workshop/image3-16.png" />
+                <img src="images/brms_workshop/image3-17.png" />
+            </div>
+        </section>
+
+        <section>
+            <h2>Lable your domain model</h2>
+            <ul>
+                <li>Open each data object in your model again to add a <code>Label</code></li>
+                <li>Click on righ pane tab <code>Data Object</code> and fill in <code>Label</code>:</li>
+            </ul>
+            <div style="width: 800px; height: 400px;">
+                <img src="images/brms_workshop/image3-18.png" />
+                <img src="images/brms_workshop/image3-19.png" />
+                <img src="images/brms_workshop/image3-20.png" />
+                <img src="images/brms_workshop/image3-21.png" />
+            </div>
+        </section>
+
+        <section>
+            <div  style="width: 1056px; height: 100px; float: right">
+                <h2>Ensure project builds</h2>
+            </div>
+            <ul>
+                <li>right pane -> <code>OPEN PROJECT EDITOR -> BUILD (top right) -> BUILD & DEPLOY</code></li>
+                <li><code>(should see green pop-up 'Build Successful')</code></li>
+            </ul>
+            <div  style="width: 1056px; height: 500px; float: right">
+                <img src="images/brms_workshop/image3-22.png" />
+            </div>
         </section>
 
         <section>
             <h3>Lab results...</h3>
-            <img src="images/brms_workshop/image17.png">
+            <img src="images/brms_workshop/image3-23.png">
         </section>
 
         <section data-background="images/jteimages/image42.png" data-background-position="top">
@@ -247,8 +283,7 @@
 
         <section>
             <h2>JBoss BRMS Workshop</h2>
-            <h3><a href="lab04.html" style="color: red" target="_blank">Lab 04</a></h3>
-            <h3><a href="lab04.html" style="color: red" target="_blank">Create Domain Specific Language (DSL)</a></h3>
+            <h3><a href="lab04.html" style="color: red" target="_blank">Lab 04 - Create Domain Specific Language (DSL)</a></h3>
         </section>
     </div>
 </div>
