@@ -10,6 +10,7 @@ SERVER_BIN=$JBOSS_HOME/bin
 SRC_DIR=./installs
 SUPPORT_DIR=./support
 PRJ_DIR=./projects
+BRMS_APP=$SUPPORT_DIR/brms-coolstore-demo.war-java-7
 BRMS=jboss-brms-6.1.0.GA-installer.jar
 EAP=jboss-eap-6.4.0-installer.jar
 VERSION=6.1
@@ -102,7 +103,7 @@ cp $SUPPORT_DIR/userinfo.properties $SERVER_DIR/business-central.war/WEB-INF/cla
 
 echo "  - install JBoss BRMS Cool Stor online retail web shopping cart application..."
 echo
-cp $SUPPORT_DIR/brms-coolstore-demo.war $SERVER_DIR
+cp $BRMS_APP  $SERVER_DIR/brms-coolstore-demo.war
 
 # Add execute permissions to the standalone.sh script.
 echo "  - making sure standalone.sh for server is executable..."
