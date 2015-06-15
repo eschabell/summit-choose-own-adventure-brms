@@ -13,7 +13,10 @@ set SERVER_BIN=%JBOSS_HOME%\bin
 set SRC_DIR=%PROJECT_HOME%installs
 set SUPPORT_DIR=%PROJECT_HOME%\support
 set PRJ_DIR=%PROJECT_HOME%\projects
+set PATCH_DIR=%PROJECT_HOME%\target\jboss-brms-6.1.1-patch
+set BRMS_APP=%SUPPORT_DIR%\brms-coolstore-demo.war
 set BRMS=jboss-brms-6.1.0.GA-installer.jar
+set PATCH=jboss-brms-6.1.1-patch.zip
 set EAP=jboss-eap-6.4.0-installer.jar
 set VERSION=6.1
 
@@ -94,6 +97,15 @@ if not "%ERRORLEVEL%" == "0" (
 	GOTO :EOF
 )
 
+
+echo.
+echo JBoss BRMS patch [%PATCH%] installation now...
+echo.
+cscript /nologo %SUPPORT_DIR%\windows\unzip.vbs %SRC_DIR%\%PATCH% %PROJECT_HOME%\target
+cd "%PATCH_DIR%"
+apply-updates.bat "%PROJECT_HOME%\target\jboss-eap-6.4" "eap6.x"
+cd "%PROJECT_HOME%"
+
 echo - enabling demo accounts role setup in application-roles.properties file...
 echo.
 xcopy /Y /Q "%SUPPORT_DIR%\application-roles.properties" "%SERVER_CONF%"
@@ -107,6 +119,10 @@ echo.
 echo - setup email task notification users...
 echo.
 xcopy "%SUPPORT_DIR%\userinfo.properties" "%SERVER_DIR%\business-central.war\WEB-INF\classes\"
+
+echo - install JBoss BRMS Cool Stor online retail web shopping cart application...
+echo.
+xcopy "%BRMS_APP%"  "%SERVER_DIR%\brms-coolstore-demo.war%
 
 echo - install JBoss BRMS Cool Stor online retail web shopping cart application...
 echo.

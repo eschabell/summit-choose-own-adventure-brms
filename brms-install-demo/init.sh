@@ -10,7 +10,9 @@ SERVER_BIN=$JBOSS_HOME/bin
 SRC_DIR=./installs
 SUPPORT_DIR=./support
 PRJ_DIR=./projects
-BRMS_APP=$SUPPORT_DIR/brms-coolstore-demo.war-java-7
+PATCH_DIR=./target/jboss-brms-6.1.1-patch
+BRMS_APP=$SUPPORT_DIR/brms-coolstore-demo.war
+PATCH=jboss-brms-6.1.1-patch.zip
 BRMS=jboss-brms-6.1.0.GA-installer.jar
 EAP=jboss-eap-6.4.0-installer.jar
 VERSION=6.1
@@ -80,6 +82,7 @@ if [ $? -ne 0 ]; then
 	exit
 fi
 
+echo
 echo "JBoss BRMS installer running now..."
 echo
 java -jar $SRC_DIR/$BRMS $SUPPORT_DIR/installation-brms -variablefile $SUPPORT_DIR/installation-brms.variables
@@ -88,6 +91,15 @@ if [ $? -ne 0 ]; then
 	echo Error occurred during $PRODUCT installation
 	exit
 fi
+
+echo
+echo "JBoss BRMS patch ($PATCH) installation now..."
+echo
+unzip $SRC_DIR/$PATCH -d ./target
+cd $PATCH_DIR
+./apply-updates.sh ../jboss-eap-6.4 eap6.x
+cd ../..
+rm -rf $PATCH_DIR
 
 echo "  - enabling demo accounts role setup in application-roles.properties file..."
 echo
