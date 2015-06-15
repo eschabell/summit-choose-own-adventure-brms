@@ -28,7 +28,7 @@ Install on your machine
 
 Supporting Articles
 -------------------
-
+[Red Hat Summit 2015 Preview - Choose Your Own Adventure with JBoss BRMS](http://www.schabell.org/2015/06/redhat-summit-2015-preview-choose-adventure-brms.html)
 
 Released versions
 -----------------
