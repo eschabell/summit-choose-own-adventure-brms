@@ -1,6 +1,6 @@
 JBoss BRMS Cool Store
 =====================
-Workshop given at Red Hat Summit 2015 as part of the Choose Your Own Adventure middleware showcase.
+Workshop originally given at Red Hat Summit as part of the Choose Your Own Adventure middleware showcase.
 
 This is a retail web store demo where you will find rules, decision tables, events, and a ruleflow 
 that is leveraged by a web application. The web application is a WAR built using the JBoss BRMS
@@ -8,7 +8,7 @@ generated project as a dependency, providing an example project showing how deve
 application code while the business analysts can focus on rules, events, and ruleflows in the 
 JBoss BRMS product web based dashboard.
 
-In this lab, you will:
+In this workshop, you will:
 
   - Create a project containing rules, events and ruleflow for a retail online webshop.
 
@@ -33,5 +33,7 @@ Supporting Articles
 Released versions
 -----------------
 See the tagged releases for the following versions of the product:
+
+- v1.1 - JBoss BRMS 6.1 and lab instructions to build the JBoss Cool Store in half to whole day workshop.
 
 - v1.0 - JBoss BRMS 6.1 and lab instructions to build the JBoss Cool Store.
