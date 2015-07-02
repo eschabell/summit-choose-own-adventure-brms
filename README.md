@@ -21,7 +21,7 @@ Install on your machine
 
 1. [Download and unzip.](https://github.com/eschabell/summit-choose-own-adventure-brms/archive/master.zip)
 
-2. Open in browser, `file:///<path-to-project>/summit-choose-own-adventure-brms/Summit-Lab-BRMS-Start.pdf`
+2. Open in browser, `file:///<path-to-project>/summit-choose-own-adventure-brms-master/Summit-Lab-BRMS-Start.pdf`
 
 3. Enjoy the workshop! 
 
