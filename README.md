@@ -34,6 +34,6 @@ Released versions
 -----------------
 See the tagged releases for the following versions of the product:
 
-- v1.1 - JBoss BRMS 6.1 and lab instructions to build the JBoss Cool Store in half to whole day workshop.
+- v1.1 - JBoss BRMS 6.1 and half to whole day workshop to build the JBoss Cool Store.
 
 - v1.0 - JBoss BRMS 6.1 and lab instructions to build the JBoss Cool Store.

@@ -12,7 +12,9 @@ set SERVER_CONF=%JBOSS_HOME%\standalone\configuration\
 set SERVER_BIN=%JBOSS_HOME%\bin
 set SRC_DIR=%PROJECT_HOME%installs
 set SUPPORT_DIR=%PROJECT_HOME%\support
-set PRJ_DIR=%PROJECT_HOME%\projects
+set PRJ_DIR=%PROJECT_HOME%\projects\brms-coolstore-demo\
+set SUPPORT_LIBS=%PROJECT_HOME%support\libs
+set WEB_INF_LIB=%PROJECT_HOME%projects\brms-coolstore-demo\src\main\webapp\WEB-INF\lib\
 set PATCH_DIR=%PROJECT_HOME%\target\jboss-brms-6.1.1-patch
 set BRMS_APP=%SUPPORT_DIR%\brms-coolstore-demo.war
 set BRMS=jboss-brms-6.1.0.GA-installer.jar
@@ -120,13 +122,27 @@ echo - setup email task notification users...
 echo.
 xcopy "%SUPPORT_DIR%\userinfo.properties" "%SERVER_DIR%\business-central.war\WEB-INF\classes\"
 
-echo - install JBoss BRMS Cool Stor online retail web shopping cart application...
-echo.
-xcopy "%BRMS_APP%"  "%SERVER_DIR%\brms-coolstore-demo.war%
+REM ensure project lib dir exists
+if not exist %WEB_INF_LIB% (
+   echo - missing web inf lib directory in project being created...
+   echo.
+   mkdir %WEB_INF_LIB%
+)
 
-echo - install JBoss BRMS Cool Stor online retail web shopping cart application...
+call mvn install:install-file -Dfile=%SUPPORT_LIBS%\cdiutils-1.0.0.jar -DgroupId=org.vaadin.virkki -DartifactId=cdiutils -Dversion=1.0.0 -Dpackaging=jar
+call mvn install:install-file -Dfile=%SUPPORT_LIBS%\coolstore-2.0.0.jar -DgroupId=com.redhat -DartifactId=coolstore -Dversion=2.0.0 -Dpackaging=jar
+
+xcopy /Y /Q "%SUPPORT_LIBS%\cdiutils-1.0.0.jar" "%WEB_INF_LIB%"
+
+cd "%PRJ_DIR%"
+call mvn clean install
+
 echo.
-xcopy "%SUPPORT_DIR%\brms-coolstore-demo.war" "%SERVER_DIR%"
+echo Deploying the Cool Store web application.
+echo.
+
+xcopy /Y /Q "%PRJ_DIR%\target\brms-coolstore-demo.war" "%SERVER_DIR%"
+cd "%PROJECT_HOME%"
 
 echo.
 echo You can now start the %PRODUCT% with %SERVER_BIN%\standalone.bat

@@ -9,7 +9,9 @@ SERVER_CONF=$JBOSS_HOME/standalone/configuration/
 SERVER_BIN=$JBOSS_HOME/bin
 SRC_DIR=./installs
 SUPPORT_DIR=./support
-PRJ_DIR=./projects
+SUPPORT_LIBS=./support/libs/
+PRJ_DIR=./projects/brms-coolstore-demo/
+WEB_INF_LIB=./projects/brms-coolstore-demo/src/main/webapp/WEB-INF/lib/
 PATCH_DIR=./target/jboss-brms-6.1.1-patch
 BRMS_APP=$SUPPORT_DIR/brms-coolstore-demo.war
 PATCH=jboss-brms-6.1.1-patch.zip
@@ -113,14 +115,29 @@ echo "  - setup email notification users..."
 echo
 cp $SUPPORT_DIR/userinfo.properties $SERVER_DIR/business-central.war/WEB-INF/classes/
 
-echo "  - install JBoss BRMS Cool Stor online retail web shopping cart application..."
-echo
-cp $BRMS_APP  $SERVER_DIR/brms-coolstore-demo.war
-
 # Add execute permissions to the standalone.sh script.
 echo "  - making sure standalone.sh for server is executable..."
 echo
 chmod u+x $JBOSS_HOME/bin/standalone.sh
+
+# ensure project lib dir exists.
+if [ ! -d $WEB_INF_LIB ]; then
+	echo "  - missing web inf lib directory in project being created..."
+	echo
+	mkdir -p $WEB_INF_LIB
+fi
+
+mvn install:install-file -Dfile=$SUPPORT_LIBS/cdiutils-1.0.0.jar -DgroupId=org.vaadin.virkki -DartifactId=cdiutils -Dversion=1.0.0 -Dpackaging=jar
+mvn install:install-file -Dfile=$SUPPORT_LIBS/coolstore-2.0.0.jar -DgroupId=com.redhat -DartifactId=coolstore -Dversion=2.0.0 -Dpackaging=jar
+cp $SUPPORT_LIBS/cdiutils-1.0.0.jar $WEB_INF_LIB
+
+echo
+echo Deploying the Cool Store web application. 
+echo
+cd $PRJ_DIR
+mvn clean install
+cp target/brms-coolstore-demo.war ../../$SERVER_DIR
+cd ../..
 
 echo "You can now start the $PRODUCT with $SERVER_BIN/standalone.sh"
 echo
